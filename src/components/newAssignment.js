@@ -1,11 +1,12 @@
 import React  from 'react';
 import { ToastContainer, toast } from 'react-toastify';
+import { Link } from 'react-router-dom'
 import 'react-toastify/dist/ReactToastify.css';
 import Button from '@mui/material/Button';
 import Cookies from 'js-cookie';
 import {SERVER_URL} from '../constants.js';
 
-class newAssignment extends React.Component {
+class NewAssignment extends React.Component {
 	constructor(props) {
       super(props);
       this.state = {aName: "", cName: "", dueDate: ""};
@@ -18,8 +19,7 @@ class newAssignment extends React.Component {
 	
 	
 	addAssignment = () =>{
-		//const newAssignment = {aName, cName, dueDate};
-		console.log("newAssignment.add");
+		console.log("NewAssignment.add");
 		const token = Cookies.get('XSRF-TOKEN');
 		
 		fetch(`${SERVER_URL}/course/${this.state.cName}` , 
@@ -96,10 +96,14 @@ class newAssignment extends React.Component {
                 <Button id="Add" variant="outlined" color="primary" style={{margin: 10}} onClick={this.addAssignment} >
                    Add
                 </Button>
+				<Button component={Link} to={{pathname:'/'}} 
+                    variant="outlined" color="primary"  style={{margin: 10}}>
+					Back
+            </Button>
 				<ToastContainer autoClose={1500} />
               </div>
 		)
 	}
 }
 
-export default newAssignment;
+export default NewAssignment;
