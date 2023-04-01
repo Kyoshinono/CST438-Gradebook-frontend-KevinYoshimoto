@@ -9,7 +9,7 @@ import {SERVER_URL} from '../constants.js';
 class NewAssignment extends React.Component {
 	constructor(props) {
       super(props);
-      this.state = {aName: "", cName: "", dueDate: ""};
+      this.state = {aName: "", cName: "", dueDate: "", toaster: ""};
     };
 	
 	componentDidMount() {
@@ -97,10 +97,12 @@ class NewAssignment extends React.Component {
                    Add
                 </Button>
 				<Button component={Link} to={{pathname:'/'}} 
-                    variant="outlined" color="primary" disabled={this.state.assignments.length===0}  style={{margin: 10}}>
+                    variant="outlined" color="primary"  style={{margin: 10}}>
 					Back
             </Button>
+			<div name = "page">
 				<ToastContainer autoClose={1500} />
+				</div>
               </div>
 		)
 	}

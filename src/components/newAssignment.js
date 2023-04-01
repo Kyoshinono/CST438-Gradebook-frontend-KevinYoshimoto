@@ -9,7 +9,7 @@ import {SERVER_URL} from '../constants.js';
 class NewAssignment extends React.Component {
 	constructor(props) {
       super(props);
-      this.state = {aName: "", cName: "", dueDate: ""};
+      this.state = {aName: "", cName: "", dueDate: "", toaster: ""};
     };
 	
 	componentDidMount() {
